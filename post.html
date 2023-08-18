@@ -115,7 +115,7 @@
         let _window = window.open(url, '_blank');
         
 
-        setTimeout(() => _window.close() , 10000);
+        setTimeout(() => _window.close() , 5000);
     }
 
     function build() {
@@ -130,7 +130,7 @@
 
     build();
     // setTimeout(clean, 7000);
-    // window.setInterval((() => build()), 2000);
+    window.setInterval((() => build()), 2000);
   </script>
 </body>
 
