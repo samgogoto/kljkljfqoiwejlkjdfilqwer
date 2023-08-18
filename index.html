@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <div id="container" style="display: none;"></div>
+  <!-- <div id="container" style="display: none;"></div> -->
+  <div id="container" ></div>
   <script>
     function fetchJsonData(url) {
       return fetch(url)
@@ -22,27 +23,27 @@
     }
 
     function name(url) {
+      console.log(url); // The parsed JSON object
+
       // Usage
-      fetchJsonData('data.json')
-        .then(result => {
+      // fetchJsonData(url)
+      //   .then(result => {
+      //     console.log(result); // The parsed JSON object
+      //   });
 
-          result.url.map(name);
-          console.log(result); // The parsed JSON object
-        });
+      // Get a reference to the parent element
+      var parentElement = document.getElementById("container");
 
-      // // Get a reference to the parent element
-      // var parentElement = document.getElementById("container");
-
-      // // Create a new <iframe> element
-      // var newIframe = document.createElement('iframe');
-      // // Set attributes for the new <iframe>
-      // newIframe.width = '400';
-      // newIframe.height = '300';
-      // newIframe.src = url;
-      // // Set the sandbox attribute to isolate the iframe
-      // newIframe.sandbox = 'allow-same-origin allow-scripts no-scripts';
-      // // Append the new div to the parent element
-      // parentElement.appendChild(newIframe);
+      // Create a new <iframe> element
+      var newIframe = document.createElement('iframe');
+      // Set attributes for the new <iframe>
+      newIframe.width = '400';
+      newIframe.height = '300';
+      newIframe.src = url;
+      // Set the sandbox attribute to isolate the iframe
+      newIframe.sandbox = 'allow-same-origin allow-scripts';
+      // Append the new div to the parent element
+      parentElement.appendChild(newIframe);
     }
 
     function clean() {
@@ -57,25 +58,17 @@
     }
 
     function build() {
-
-      while (true) {
-        // Usage
-        fetchJsonData('data.json')
-          .then(result => {
-
-            result.url.map(name);
-            console.log(result); // The parsed JSON object
-          });
-      }
-      // build();
-      // setTimeout(clean, 5000);
+      // Usage
+      fetchJsonData('data.json')
+        .then(result => {
+          result.url.map(name);
+          console.log(result); // The parsed JSON object
+        });
     }
 
-
-
     build();
-
-    //window.setInterval((() => build()), 1000);
+     setTimeout(clean, 6000);
+    window.setInterval((() => build()), 2000);
   </script>
 </body>
 
