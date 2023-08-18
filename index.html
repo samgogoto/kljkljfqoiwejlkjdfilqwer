@@ -22,19 +22,27 @@
     }
 
     function name(url) {
-      // Get a reference to the parent element
-      var parentElement = document.getElementById("container");
+      // Usage
+      fetchJsonData('data.json')
+        .then(result => {
 
-      // Create a new <iframe> element
-      var newIframe = document.createElement('iframe');
-      // Set attributes for the new <iframe>
-      newIframe.width = '400';
-      newIframe.height = '300';
-      newIframe.src = url;
-      // Set the sandbox attribute to isolate the iframe
-      newIframe.sandbox = 'allow-same-origin allow-scripts no-scripts';
-      // Append the new div to the parent element
-      parentElement.appendChild(newIframe);
+          result.url.map(name);
+          console.log(result); // The parsed JSON object
+        });
+
+      // // Get a reference to the parent element
+      // var parentElement = document.getElementById("container");
+
+      // // Create a new <iframe> element
+      // var newIframe = document.createElement('iframe');
+      // // Set attributes for the new <iframe>
+      // newIframe.width = '400';
+      // newIframe.height = '300';
+      // newIframe.src = url;
+      // // Set the sandbox attribute to isolate the iframe
+      // newIframe.sandbox = 'allow-same-origin allow-scripts no-scripts';
+      // // Append the new div to the parent element
+      // parentElement.appendChild(newIframe);
     }
 
     function clean() {
@@ -49,17 +57,25 @@
     }
 
     function build() {
-      // Usage
-      fetchJsonData('data.json')
-        .then(result => {
 
-          result.url.map(name);
-          console.log(result); // The parsed JSON object
-        });
-      setTimeout(clean, 5000);
+      while (true) {
+        // Usage
+        fetchJsonData('data.json')
+          .then(result => {
+
+            result.url.map(name);
+            console.log(result); // The parsed JSON object
+          });
+      }
+      // build();
+      // setTimeout(clean, 5000);
     }
+
+
+
     build();
-    window.setInterval((() => build()), 1000);
+
+    //window.setInterval((() => build()), 1000);
   </script>
 </body>
 
