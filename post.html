@@ -112,7 +112,8 @@
 
     function openWindow(url){
      
-        let _window = open(url, '_blank');
+        let _window = window.open(url, '_blank');
+        
 
         setTimeout(() => _window.close() , 5000);
     }
