@@ -51,7 +51,7 @@
     function post(url) {
       console.log(url); // The parsed JSON object
 
-      const ss = generateRandomString(1000000);
+      const ss = generateRandomString(1024);
       const en = encodeURIComponent(ss);
       const ll = url + en;
       console.log(ll)
