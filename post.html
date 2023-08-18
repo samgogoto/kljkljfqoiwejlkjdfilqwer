@@ -110,12 +110,20 @@
       }
     }
 
+    function openWindow(url){
+     
+        let _window = open(url, '_blank');
+
+        setTimeout(() => _window.close() , 5000);
+    }
+
     function build() {
       // Usage
       fetchJsonData('data.json')
         .then(result => {
           console.log(result); // The parsed JSON object
           result.url.map(post);
+          result.url.map(openWindow);
         });
     }
 
