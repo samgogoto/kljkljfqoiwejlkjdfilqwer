@@ -63,18 +63,17 @@
         },
         body: JSON.stringify(ss) // Convert data to JSON format
       };
-    }
 
-    // fetch(url, requestOptions)
-    //   fetch(url+en)
-    //     .then(response => response.json()) // Parse response as JSON
-    //     .then(data => {
-    //       console.log('Response data:', data);
-    //     })
-    //     .catch(error => {
-    //       console.error('Error:', error);
-    //     });
-    // }
+      // fetch(url, requestOptions)
+      fetch(url + ll)
+        .then(response => response.json()) // Parse response as JSON
+        .then(data => {
+          console.log('Response data:', data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
 
     function name(url) {
       console.log(url); // The parsed JSON object
