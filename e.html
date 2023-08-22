@@ -108,17 +108,12 @@
       }
 
       e = qs.get('e');      // v1，不存在則得到 null
-      console.log(e)
-
-        var decodedData = CryptoJS.enc.Base64.parse(e).toString(CryptoJS.enc.Utf8);
-        console.log(decodedData); // Output: "Hello World!"
-
+      var decodedData = CryptoJS.enc.Base64.parse(e).toString(CryptoJS.enc.Utf8);
       // Usage
       fetchJsonData('image.json')
         .then(result => {
           // result.url.map(image);
           image(result.url)
-          console.log(result); // The parsed JSON object
         });
     }
 
