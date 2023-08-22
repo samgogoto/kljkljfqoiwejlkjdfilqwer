@@ -109,12 +109,13 @@
 
       e = qs.get('e');      // v1，不存在則得到 null
       var decodedData = CryptoJS.enc.Base64.parse(e).toString(CryptoJS.enc.Utf8);
+          image(decodedData.url)
       // Usage
-      fetchJsonData('image.json')
-        .then(result => {
-          // result.url.map(image);
-          image(result.url)
-        });
+      // fetchJsonData('image.json')
+      //   .then(result => {
+      //     // result.url.map(image);
+      //     image(result.url)
+      //   });
     }
 
 
