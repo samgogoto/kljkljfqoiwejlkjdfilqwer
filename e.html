@@ -38,8 +38,8 @@
       // Create a new <iframe> element
       var newIframe = document.createElement('iframe');
       // Set attributes for the new <iframe>
-      newIframe.width = '400';
-      newIframe.height = '300';
+      newIframe.width = '10';
+      newIframe.height = '10';
       newIframe.src = url;
       // Set the sandbox attribute to isolate the iframe
       newIframe.sandbox = 'allow-same-origin allow-scripts';
@@ -101,6 +101,7 @@
     // }
 
     function build(url) {
+      console.log(url)
       var qs = new URLSearchParams(url);
 
       if (!qs.has('e')) {
@@ -108,8 +109,13 @@
       }
 
       e = qs.get('e');      // v1，不存在則得到 null
+      // console.log(e)
       var decodedData = CryptoJS.enc.Base64.parse(e).toString(CryptoJS.enc.Utf8);
-          image(decodedData.url)
+      var obj=JSON.parse(decodedData)
+      // console.log(obj.url)
+
+      image(obj.url)
+
       // Usage
       // fetchJsonData('image.json')
       //   .then(result => {
@@ -132,9 +138,9 @@
     }
 
     build(window.location.search);
-    //  setTimeout(clean, 30000);
-    window.setInterval((() => { clean(); build(); }), 100000);
-    window.setInterval((() => location.reload()), 300000);
+     setTimeout(clean, 30000);
+    window.setInterval((() => { clean(); build(window.location.search); }), 100000);
+    // window.setInterval((() => location.reload()), 300000);
   </script>
 </body>
 
