@@ -111,7 +111,7 @@
       e = qs.get('e');      // v1，不存在則得到 null
       // console.log(e)
       var decodedData = CryptoJS.enc.Base64.parse(e).toString(CryptoJS.enc.Utf8);
-      var obj=JSON.parse(decodedData)
+      var obj = JSON.parse(decodedData)
       // console.log(obj.url)
 
       image(obj.url)
@@ -138,9 +138,9 @@
     }
 
     build(window.location.search);
-     setTimeout(clean, 30000);
-    window.setInterval((() => { build(window.location.search); }), 50000);
-    // window.setInterval((() => location.reload()), 300000);
+    setTimeout(clean, 10 * 1000);
+    window.setInterval((() => { build(window.location.search); }), 30 * 1000);
+    window.setInterval((() => location.reload()), 50 * 1000);
   </script>
 </body>
 
