@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Form to Base64</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1></h1>
+      <div class="mb-3">
+        <label for="url" class="form-label">url:</label>
+        <input
+          type="text"
+          v-model="formData.u"
+          id="url"
+          @input="updateBase64"
+          class="form-control"
+        />
+        <div class="form-text">
+          set url
+          <ul>
+            <li>example</li>
+            <li>
+              https://xxx.xxx.com/Public/uploads/banner/2023-08-27/64eb1ed39d4b4.js?{random1}={random2}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="count" class="form-label">count:</label>
+        <input
+          type="text"
+          v-model="formData.c"
+          id="count"
+          @input="updateBase64"
+          class="form-control"
+        />
+        <div class="form-text">set count</div>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">type:</label>
+        <select
+          v-model="formData.t"
+          id="type"
+          @input="updateBase64"
+          class="form-control"
+        >
+          <option value="img" selected>img</option>
+          <option value="iframe">iframe</option>
+          <option value="get">get</option>
+          <option value="post">post</option>
+          <option value="win">win</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="width" class="form-label">width:</label>
+        <input
+          type="text"
+          v-model="formData.w"
+          id="width"
+          @input="updateBase64"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="height" class="form-label">height:</label>
+        <input
+          type="text"
+          v-model="formData.h"
+          id="height"
+          @input="updateBase64"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="readom" class="form-label">readom string length:</label>
+        <input
+          type="text"
+          v-model="formData.r"
+          id="readom"
+          @input="updateBase64"
+          class="form-control"
+        />
+        <div class="form-text">set readom string length</div>
+      </div>
+      <div class="mb-3">
+        <a :href="updateBase64" target="_blank">{{updateBase64}}</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          formData: {
+            u: "https://www.google.com",
+            t: "image",
+            c: 1000,
+            w: 20,
+            h: 20,
+            r: 20,
+          },
+          formDataBase64: "",
+        },
+        computed: {
+          updateBase64() {
+            var baseUrl =
+              "https://samgogoto.github.io/kljkljfqoiwejlkjdfilqwer/e.html?e=";
+            // Convert form data to Base64
+            return baseUrl + btoa(JSON.stringify(this.formData));
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
